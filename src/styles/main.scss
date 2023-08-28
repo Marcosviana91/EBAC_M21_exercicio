@@ -1,0 +1,83 @@
+@use "variaveis";
+@use 'hero';
+@use "over-view";
+
+@font-face {
+    font-family: Matrix;
+    src: url(../../assets/fonts/matrix.ttf);
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body
+{
+    background-color: variaveis.$corDeFundo;
+    background-image: url(../../dist/images/matrix_background.jpg);
+    background-size: 100vw auto;
+}
+
+p {
+    text-indent: .5in;
+}
+
+@mixin text($fontSize: 24px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoSecundario;
+    text-align: justify;
+}
+
+@mixin title($fontSize: 40px) {
+    @include text($fontSize);
+    font-family: Matrix;
+    color: variaveis.$corTextoPrincipal;
+}
+
+.text {
+    @include text;
+
+    @media (max-width:768px) {
+        @include text(14px)
+    }
+}
+
+.text--small {
+    @include text(20px);
+
+    @media (max-width:768px) {
+        @include text(14px)
+    }
+}
+
+.title {
+    @include title;
+
+    @media (max-width:768px) {
+        @include title(24px)
+    }
+}
+
+.title--big {
+    @include title(100px);
+
+    @media (max-width:768px) {
+        @include title(40px)
+    }
+}
+
+section {
+    min-height: 50vw;
+}
+
+footer {
+    color: white;
+    padding: 12px 24px;
+}

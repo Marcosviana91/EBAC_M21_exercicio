@@ -1,0 +1,45 @@
+@use 'variaveis';
+
+.over-view {
+
+    display: grid;
+    grid-template-areas: 
+        'title title'
+        'i txt';
+
+        @media (max-width:640px) {
+            grid-template-areas:
+                'title'
+                'i'
+                'txt';
+        }
+
+    &__title {
+        grid-area: title;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width:640px) {
+            padding: 12px;
+        }
+    }
+    
+    &__text {
+        color: variaveis.$corTextoSecundario;
+        grid-area: txt;
+        margin: 24px;
+    }
+
+    img {
+        grid-area: i;
+        margin: 24px;
+        max-width: 100%;
+
+        @media (max-width:640px) {
+            margin: 0;
+            padding: 24px;
+        }
+    }
+}
